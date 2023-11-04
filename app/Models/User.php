@@ -42,4 +42,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // /**
+    //  * Get the UserAccount that owns the User
+    //  *
+    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    //  */
+    // public function UserAccount()
+    // {
+    //     return $this->belongsTo(UserAccount::class);
+    // }
+
+    /**
+     * Get the UserAccount associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function userAccount()
+    {
+        return $this->hasOne(UserAccount::class);
+    }
 }

@@ -18,6 +18,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            // $table->bigInteger('user_account_id')->unsigned();
+            // $table->foreign('user_account_id')->references('id')->on('user_accounts')
+            // ->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
