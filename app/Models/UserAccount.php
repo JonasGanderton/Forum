@@ -9,16 +9,6 @@ class UserAccount extends Model
 {
     use HasFactory;
 
-    // /**
-    //  * Get the user associated with the UserAccount
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\HasOne
-    //  */
-    // public function user()
-    // {
-    //     return $this->hasOne(User::class);
-    // }
-
     /**
      * Get the User that owns the UserAccount
      *

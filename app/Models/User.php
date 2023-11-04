@@ -43,16 +43,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // /**
-    //  * Get the UserAccount that owns the User
-    //  *
-    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    //  */
-    // public function UserAccount()
-    // {
-    //     return $this->belongsTo(UserAccount::class);
-    // }
-
     /**
      * Get the UserAccount associated with the User
      *
