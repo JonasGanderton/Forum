@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        $this->call(UsersTableSeeder::class);
+        $this->call(UserTableSeeder::class);
 
-        // $this->call(UserAccountsTableSeeder::class);
+        // $this->call(UserAccountTableSeeder::class);
     }
 }
