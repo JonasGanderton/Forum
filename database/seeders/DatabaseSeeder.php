@@ -15,23 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create test data
+        // (Called here so IDs are all 1)
+        User::factory()->create([
+            'name' => "Test User",
+            'email' => "user@test.com",
+        ]);
 
-        
-        // UserAccount::factory(10)->has(User::factory())->create();
-    
-        // User::factory()
-        // ->has(UserAccount::factory()
-        //     ->create([
-        //         'username' => 'Test UserName',
-        //     ]))
-        // ->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        UserAccount::factory()->create([
+            'username' => 'TestAccount123',
+            'user_id' => 1,
+        ]);
 
-        //User::factory(10)->has(UserAccount::factory())->create();
-        User::factory(10)->create();
+        $this->call(UsersTableSeeder::class);
 
-        $this->call(UserAccountsTableSeeder::class);
+        // $this->call(UserAccountsTableSeeder::class);
     }
 }

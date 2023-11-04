@@ -17,7 +17,7 @@ class UserAccountFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => fake()->name(), //try username()
+            'username' => fake()->username(),
         ];
     }
 }
