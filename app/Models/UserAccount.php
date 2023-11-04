@@ -18,4 +18,14 @@ class UserAccount extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get all of the Posts for the UserAccount
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
