@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\UserAccount;
 use App\Models\Post;
+use App\Models\Comment;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -35,10 +36,18 @@ class DatabaseSeeder extends Seeder
             'user_account_id' => 1,
         ]);
 
+        Comment::factory()->create([
+            'content' => 'This is my first comment!',
+            'posted_at' => '2023-01-01 00:00:01',
+            'user_account_id' => 1,
+        ]);
+ 
         $this->call(UserTableSeeder::class);
 
         // $this->call(UserAccountTableSeeder::class);
 
         // $this->call(PostTableSeeder::class);
+
+        $this->call(CommentTableSeeder::class);
     }
 }
