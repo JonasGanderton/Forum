@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('content');
+            $table->string('title'); //   255 character limit (2^8 -1)
+            $table->text('content'); // 65635 character limit (2^16 -1) 
             $table->bigInteger('user_account_id')->unsigned();
             $table->dateTime('posted_at');
 
