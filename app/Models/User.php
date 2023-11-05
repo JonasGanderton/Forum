@@ -11,6 +11,19 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    
+    /**
+     * Get the UserAccount associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function userAccount()
+    {
+        return $this->hasOne(UserAccount::class);
+    }
+
+
+    // - Default Laravel functions - //
 
     /**
      * The attributes that are mass assignable.
@@ -42,14 +55,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    /**
-     * Get the UserAccount associated with the User
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function userAccount()
-    {
-        return $this->hasOne(UserAccount::class);
-    }
 }

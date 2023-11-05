@@ -1,6 +1,5 @@
 <?php
 
-// namespace App\Models;
 namespace Database\Seeders;
 
 use App\Models\Post;
