@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\UserAccount;
 use App\Models\Post;
+use App\Models\Tag;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create all tags first
+        $this->call(TagTableSeeder::class);
+
         // Create test data
         // (Called here so IDs are all 1)
         User::factory()->create([
@@ -28,7 +32,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        Post::factory()->create([
+        Post::factory()->hasAttached(Tag::find(1))
+        ->create([
             'title' => 'Hello World!',
             'content' => 'This is my first post!',
             'posted_at' => '2023-01-01 00:00:00',
@@ -39,8 +44,6 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(UserAccountTableSeeder::class);
 
-        // $this->call(PostTableSeeder::class);
-        
-        $this->call(TagTableSeeder::class);
+        $this->call(PostTableSeeder::class);
     }
 }
