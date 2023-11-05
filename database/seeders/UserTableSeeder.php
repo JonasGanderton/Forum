@@ -15,6 +15,6 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(9)->has(UserAccount::factory()->has(Post::factory(3)))->create();
+        User::factory(5)->has(UserAccount::factory()->has(Post::factory(1)))->create();
     }
 }

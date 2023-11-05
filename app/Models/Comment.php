@@ -18,4 +18,22 @@ class Comment extends Model
     {
         return $this->belongsTo(UserAccount::class);
     }
+
+    /**
+     * Get the parent commentable model (post or comment).
+     * 
+     * @return MorphTo
+     */
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     * Get all of the comment's comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

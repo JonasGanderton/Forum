@@ -18,4 +18,14 @@ class Post extends Model
     {
         return $this->belongsTo(UserAccount::class);
     }
+
+    /**
+     * Get all of the post's comments.
+     * 
+     * @return MorphMany
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

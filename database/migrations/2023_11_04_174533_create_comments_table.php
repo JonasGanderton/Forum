@@ -18,6 +18,11 @@ return new class extends Migration
             $table->bigInteger('user_account_id')->unsigned();
             $table->foreign('user_account_id')->references('id')->on('user_accounts')
             ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->bigInteger('commentable_id')->unsigned();
+            $table->string('commentable_type');
+            // Need referential integrity constraint here?
+            // Might not be possible with polymorphic relationship
             
             $table->timestamps();
         });
