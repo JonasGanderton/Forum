@@ -40,5 +40,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserAccountTableSeeder::class);
 
         // $this->call(PostTableSeeder::class);
+        
+        $this->call(TagTableSeeder::class);
     }
 }
