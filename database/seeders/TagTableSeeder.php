@@ -13,10 +13,6 @@ class TagTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $tag = new Tag();
-        $tag->name = 'default';
-        $tag->save();
-
-        Tag::factory(10)->create();
+        Tag::factory(9)->create();
     }
 }
