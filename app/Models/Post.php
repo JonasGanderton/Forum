@@ -14,7 +14,7 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function UserAccount()
+    public function userAccount()
     {
         return $this->belongsTo(UserAccount::class);
     }
