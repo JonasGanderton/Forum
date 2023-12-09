@@ -12,6 +12,8 @@
         .postListItem {
             color: #B6BDC2;
             background-color: #2F4562;
+            margin-left: 4%;
+            margin-right: 4%;
         }
 
         a:link {
