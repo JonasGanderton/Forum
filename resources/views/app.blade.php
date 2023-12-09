@@ -54,20 +54,20 @@
         </h1>
         
         @if (session('message'))
-            <font color="green">
+            <span style="color:green">
             <p><b>{{ session('message') }}</b></p>
-            </font>
+            </span>
         @endif
         
         @if (session('errors'))
             <div>
-                <font color="red">Errors:
-                <ul>
-                    @foreach (session('errors')->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                </font>
+                <span style="color:red">Errors:
+                    <ul>
+                        @foreach (session('errors')->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </span>
             </div>
         @endif
 
