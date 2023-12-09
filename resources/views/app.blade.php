@@ -48,7 +48,10 @@
         <!-- Scripts -->
         </head>
     <body class="main">
-        <h1><font color="blue">Forum</font> - @yield('title')</h1>
+        <h1>
+            <a href="{{ route('posts.index') }}">
+            <span style="color:blue">Forum</span></a> - @yield('title')
+        </h1>
         
         @if (session('message'))
             <font color="green">
