@@ -34,9 +34,8 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(UserAccount $userAccount)
     {
-        $userAccount = UserAccount::inRandomOrder()->first();
         return view('users.show', ['userAccount' => $userAccount]);
     }
 

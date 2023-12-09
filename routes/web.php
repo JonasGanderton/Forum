@@ -23,4 +23,4 @@ Route::get('/home', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/post/{post}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/user/{user}', [UserController::class, 'show'])->name('users.show');
+Route::get('/user/{userAccount}', [UserController::class, 'show'])->name('users.show');
