@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <style>
-        /* #081B33 #152642 #2F4562 #506680 #767D92 #353C51
-         */
+        .palette {
+            /* Do not use this style, it is here temporarily so I can see the colours. */
+            color: #081B33 #152642 #2F4562 #506680 #767D92 #353C51;
+        }
         .main {
             color: #767D92;
             background-color: #081B33;
@@ -11,6 +13,22 @@
             color: #B6BDC2;
             background-color: #2F4562;
         }
+
+        a:link {
+            color: #B6BDC2;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #767D92;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #abc3e3;
+            background-color: #152642;
+        }
+        
     </style>
 
     <head>
