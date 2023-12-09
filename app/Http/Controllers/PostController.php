@@ -36,9 +36,8 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Post $post)
     {
-        $post = Post::inRandomOrder()->first();
         return view('posts.show', ['post' => $post]);
     }
 

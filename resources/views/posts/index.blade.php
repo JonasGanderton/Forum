@@ -7,10 +7,11 @@
     <ul>
         @foreach ($posts as $post)
             {{-- TODO: Make this into a layout that can be repeated --}}
-            <li><div class="postListItem">
+            <li> <a href="{{ route('posts.show', ['post' =>$post]) }}">
+                <div class="postListItem">
                 <b>{{ $post->title }}</b>
                 {{ $post->content }}
-            </div></li>
+            </a></div></li>
             <br>
         @endforeach
     </ul>
