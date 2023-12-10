@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -40,9 +41,13 @@ class PostController extends Controller
         $p->title = $validatedData['title'];
         $p->content = $validatedData['content'];
         $p->user_account_id = 1; // TODO: Replace with logged in user
-        $p->tags = 1; // TODO: allow user to add tags
         $p->posted_at = now();
         $p->save();
+        
+        // Save the Post first, as Post id required by post_tag table
+        
+        // TODO: allow user to add tags
+        $p->tags()->attach(Tag::find(1));
 
         session()->flash('message', 'Post was created.');
 
