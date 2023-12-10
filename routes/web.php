@@ -25,6 +25,10 @@ Route::get('/laravel', function () {
 
 Route::get('/home', [PostController::class, 'index'])->name('posts.index');
 
+Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+
+Route::post('/home', [PostController::class, 'store'])->name('posts.store');
+
 Route::get('/post/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/user/{username}', [UserController::class, 'show'])->name('users.show');

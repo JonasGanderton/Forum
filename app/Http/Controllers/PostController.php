@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -30,7 +30,23 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required', // May not be required once pictures are added.
+            // TODO: validate tags
+        ]);
+
+        $p = new Post;
+        $p->title = $validatedData['title'];
+        $p->content = $validatedData['content'];
+        $p->user_account_id = 1; // TODO: Replace with logged in user
+        $p->tags = 1; // TODO: allow user to add tags
+        $p->posted_at = now();
+        $p->save();
+
+        session()->flash('message', 'Post was created.');
+
+        return redirect()->route('posts.show', ['post' => $p]);
     }
 
     /**
