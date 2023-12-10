@@ -34,8 +34,9 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UserAccount $userAccount)
+    public function show(String $username)
     {
+        $userAccount = UserAccount::where('username', '=', $username)->firstOrFail();
         return view('users.show', ['userAccount' => $userAccount]);
     }
 

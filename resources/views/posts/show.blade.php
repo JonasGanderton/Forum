@@ -7,7 +7,7 @@
     {{-- TODO: Make this into a layout that can be repeated --}}
     <div class="postListItem">
         <p>Posted by
-            <i><a href="{{ route('users.show', ['userAccount' => $post->userAccount]) }}">
+            <i><a href="{{ route('users.show', ['username' => $post->userAccount->username]) }}">
                 {{ $post->userAccount->username }}
             </a></i>
             <br><i>{{ $post->posted_at}}</i></p>
