@@ -6,7 +6,7 @@ use App\Models\UserAccount;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserAccountsTableSeeder extends Seeder
+class UserAccountTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
