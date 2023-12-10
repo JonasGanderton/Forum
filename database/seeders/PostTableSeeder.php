@@ -14,7 +14,7 @@ class PostTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $all_posts = Post::get()->slice(1);     // Skip test post
+        $all_posts = Post::get()->slice(2);     // Skip test posts
         $all_tags  =  Tag::get()->slice(1);     // Skip test tag
 
         // Add test ('default') tag and one other

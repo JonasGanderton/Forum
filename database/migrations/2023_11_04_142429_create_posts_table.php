@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('content'); // 65635 character limit (2^16 -1) 
             $table->bigInteger('user_account_id')->unsigned();
             $table->dateTime('posted_at');
+            $table->integer('pinned_position')->nullable(); // null is equivalent to -inf when sorting
 
             $table->foreign('user_account_id')->references('id')->on('user_accounts')
             ->onDelete('cascade')->onUpdate('cascade');

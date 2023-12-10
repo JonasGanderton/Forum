@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         // Use paginate() if I have a way to format the buttons it inserts
-        $posts = Post::orderByDesc('posted_at')->simplePaginate(10);
+        $posts = Post::orderByDesc('pinned_position')->orderByDesc('posted_at')->simplePaginate(10);
         return view('posts.index', ['posts' => $posts]);
     }
 

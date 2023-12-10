@@ -52,6 +52,15 @@ class DatabaseSeeder extends Seeder
             'content' => 'This is my first post!',
             'posted_at' => '2023-01-01 00:00:00',
             'user_account_id' => 1,
+            'pinned_position' => -2,
+        ]);
+
+        Post::factory()->hasAttached(Tag::find(1))->create([
+            'title' => 'Welcome!',
+            'content' => 'Welcome to the forum!',
+            'posted_at' => '2023-01-01 00:05:00',
+            'user_account_id' => 1,
+            'pinned_position' => -1,
         ]);
     }
 }
