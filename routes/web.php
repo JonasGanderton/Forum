@@ -38,9 +38,11 @@ require __DIR__.'/auth.php';
 
 Route::get('/home', [PostController::class, 'index'])->name('posts.index');
 
-Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('/post/create', [PostController::class, 'create'])
+    ->middleware(['auth', 'verified'])->name('posts.create');
 
-Route::post('/home', [PostController::class, 'store'])->name('posts.store');
+Route::post('/home', [PostController::class, 'store'])
+    ->middleware(['auth', 'verified'])->name('posts.store');
 
 Route::get('/post/{post}', [PostController::class, 'show'])->name('posts.show');
 
