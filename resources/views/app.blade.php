@@ -49,7 +49,7 @@
         </head>
     <body class="main">
         <h1>
-            <a href="{{ route('posts.index') }}">
+            <a href="{{ route('home') }}">
             <span style="color:blue">Forum</span></a> - @yield('title')
         </h1>
         

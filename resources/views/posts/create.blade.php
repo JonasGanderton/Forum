@@ -11,5 +11,5 @@
         {{-- TODO: Add tags. --}}
         <input type="submit" value="Submit">
 
-        <a href="{{ route('posts.index') }}">Cancel</a>
+        <a href="{{ route('home') }}">Cancel</a>
 @endsection
