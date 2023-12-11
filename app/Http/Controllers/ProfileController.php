@@ -33,6 +33,8 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+        $request->user()->userAccount->username = $request->username;
+        $request->user()->userAccount->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

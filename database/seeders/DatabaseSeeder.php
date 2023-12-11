@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
     private function createTestData(): void
     {
         User::factory()->create([
-            'name' => "Test User",
             'email' => "user@test.com",
         ]);
 
