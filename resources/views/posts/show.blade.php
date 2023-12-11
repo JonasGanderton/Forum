@@ -1,22 +1,25 @@
-@extends('app')
-
-{{-- TODO: test an unsafe title (i.e. attack) --}}
-@section('title', $post->title )
-
-@section('content')
-    {{-- TODO: Make this into a layout that can be repeated --}}
-    <div class="postListItem">
-        <p>Posted by
-            <i><a href="{{ route('users.show', ['username' => $post->userAccount->username]) }}">
-                {{ $post->userAccount->username }}
-            </a></i>
-            <br><i>{{ $post->posted_at}}</i></p>
-        <p>{{ $post->content }}</p>
-        <p>Tags:
-            @foreach ($post->tags as $tag)
-                <span class="main"> {{ $tag->name }}</span>
-            @endforeach
-        </p>
+<x-app-layout>
+    <div class="py-12">
+        <div class="mx-auto sm:px-6 lg:px-8 space-y-6" style="max-width:80rem">
+            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+                <h2 class="text-xl font-medium text-gray-900 dark:text-gray-100">
+                    {{ $post->title }}
+                </h2>
+                <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
+                    {{ $post->content }}
+                </p>
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    Posted by<i>
+                        <a href="{{ route('users.show', ['username' => $post->userAccount->username]) }}" class="hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        {{ $post->userAccount->username }}
+                        </a>
+                    </i><br><i>{{ $post->posted_at}}</i>
+                </p>
+                {{-- Add Tag labels/buttons --}}
+                {{-- @foreach ($post->tags as $tag)
+                    <span class="main"> {{ $tag->name }}</span>
+                @endforeach --}}
+            </div>
+        </div>
     </div>
-    <br>
-@endsection
+</x-app-layout>
