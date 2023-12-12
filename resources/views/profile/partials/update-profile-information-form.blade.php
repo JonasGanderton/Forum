@@ -47,6 +47,14 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="about" :value="__('About')" />
+            <x-textarea-input id="about" name="about" type="text" class="mt-1 block w-full">
+                <x-slot:value>{{ old('about', $user->useraccount->about) }}</x-slot:value>
+            </x-textarea-input>
+            <x-input-error class="mt-2" :messages="$errors->get('about')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

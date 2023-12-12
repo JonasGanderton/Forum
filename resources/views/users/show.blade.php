@@ -3,6 +3,8 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ $userAccount->username }}
         </h2>
+        {{-- TODO: move profile card to side with name, about, and most common tags? --}}
+        <p style="white-space:pre-wrap" class="mt-1 text-m text-gray-900 dark:text-gray-100">{{ $userAccount->about }}</p>
     </x-slot>
 
     <div class="py-12">
