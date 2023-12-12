@@ -23,9 +23,8 @@
 
                         <div>
                             <x-input-label class="text-xl mt-6" for="content" :value="__('Content')" />
-                            <x-textarea-input id="content" name="content" type="text" class="mt-1 block w-full" value="{{ old('content') }}" required />
+                            <x-textarea-input id="content" name="content" type="text" class="mt-1 block w-full" value="{{ old('content') }}" style="height:15em" required />
                             <x-input-error class="mt-2" :messages="$errors->get('content')" />
-
                         </div>
                         
                         {{-- TODO: Add tags as buttons. --}}
