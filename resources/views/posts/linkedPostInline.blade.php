@@ -20,10 +20,7 @@
                     {{ $post->comment_count() }} comments
                 @endif
                 &nbsp;
-                {{-- TODO: Add links to tags! --}}
-                @foreach ($post->tags as $tag)
-                    <x-secondary-button-compact>{{ $tag->name }}</x-secondary-button-compact>
-                @endforeach
+                @include('tags.show', $tags=$post->tags)
             </div>
         </a>
     </div>

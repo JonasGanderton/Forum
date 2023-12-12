@@ -22,10 +22,7 @@
                     {{ $post->content }}
                 </p>
                 @include('posts.userInfo', $post)
-                {{-- TODO: Add links to tags! --}}
-                @foreach ($post->tags as $tag)
-                    <x-secondary-button-compact>{{ $tag->name }}</x-secondary-button-compact>
-                @endforeach
+                @include('tags.show', $tags=$post->tags)
             </div>
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
