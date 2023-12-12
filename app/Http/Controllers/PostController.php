@@ -40,7 +40,7 @@ class PostController extends Controller
         $p = new Post;
         $p->title = $validatedData['title'];
         $p->content = $validatedData['content'];
-        $p->user_account_id = 1; // TODO: Replace with logged in user
+        $p->user_account_id = $request->user()->id;
         $p->posted_at = now();
         $p->save();
         
