@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
 
         // Attaches Tags to Posts (populates post_tag table) 
         $this->call(PostTableSeeder::class);
+
+        $this->call(CommentTableSeeder::class);
     }
 
     /**
@@ -68,6 +70,8 @@ class DatabaseSeeder extends Seeder
             'content' => 'This is my first comment!',
             'posted_at' => '2023-01-01 00:00:01',
             'user_account_id' => 1,
+            'commentable_id' => 1,
+            'commentable_type' => Post::class,
         ]);
     }
 }
