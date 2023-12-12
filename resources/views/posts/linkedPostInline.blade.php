@@ -12,23 +12,19 @@
             <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
                 {{ $post->content }}
             </p>
-            <span class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                {{-- TODO: Link to user profile --}}
-                Posted by <i>{{ $post->userAccount->username }}</i> - {{ $post->posted_at }}
-            </span>
-            <br>
-            <span class="mt-1 text-m text-gray-900 dark:text-gray-100">
+            @include('posts.userInfo', $post)
+            <div class="mt-1 text-m text-gray-900 dark:text-gray-100">
                 @if ($post->comment_count() == 1)
                     {{ $post->comment_count() }} comment
                 @else
                     {{ $post->comment_count() }} comments
                 @endif
                 &nbsp;
-            </span>
-            {{-- TODO: Add links to tags! --}}
-            @foreach ($post->tags as $tag)
-                <x-secondary-button-compact>{{ $tag->name }}</x-secondary-button-compact>
-            @endforeach
+                {{-- TODO: Add links to tags! --}}
+                @foreach ($post->tags as $tag)
+                    <x-secondary-button-compact>{{ $tag->name }}</x-secondary-button-compact>
+                @endforeach
+            </div>
         </a>
     </div>
 </div>
