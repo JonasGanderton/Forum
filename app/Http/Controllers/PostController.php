@@ -11,10 +11,15 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($tagName = null)
     {
-        // Use paginate() if I have a way to format the buttons it inserts
-        $posts = Post::orderByDesc('pinned_position')->orderByDesc('posted_at')->simplePaginate(10);
+        if ($tagName === null){
+            // Use paginate() if I have a way to format the buttons it inserts
+            $posts = Post::orderByDesc('pinned_position')->orderByDesc('posted_at')->simplePaginate(10);
+        } else {
+            $tag = Tag::where('name', '=', $tagName)->firstOrFail();
+            $posts = Post::whereRelation('tags','id','=', $tag->id)->orderByDesc('pinned_position')->orderByDesc('posted_at')->simplePaginate(10);
+        }
         return view('posts.index', ['posts' => $posts]);
     }
 

@@ -30,6 +30,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/home', [PostController::class, 'index'])->name('home');
 
+Route::get('/tag/{tagName}', [PostController::class, 'index'])->name('posts.tag');
+
 Route::get('/post/create', [PostController::class, 'create'])
     ->middleware(['auth', 'verified'])->name('posts.create');
 
