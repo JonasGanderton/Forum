@@ -25,9 +25,12 @@
                 @include('tags.show', $tags=$post->tags)
             </div>
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
+                <span class="mt-1 text-m text-gray-900 dark:text-gray-100" style="float:right">
                     @include('comments.count', $post)
-                </p>
+                </span>
+                <span>
+                    @livewire('create-comment', ['post' => $post, 'parent' => $post])
+                </span>
                 <br>
                 @include('comments.nestedComment', $commentable=$post)
             </div>
