@@ -14,11 +14,21 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function UserAccount()
+    public function userAccount()
     {
         return $this->belongsTo(UserAccount::class);
     }
 
+    /**
+     * The Tags that belong to the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+  
     /**
      * Get all of the post's comments.
      * 

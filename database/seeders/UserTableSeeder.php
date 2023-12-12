@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use App\Models\User;
 use App\Models\UserAccount;
-use App\Models\Post;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +15,12 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->has(UserAccount::factory()->has(Post::factory(1)))->create();
+        // Create each User with a UserAccount and Posts 
+        User::factory(9)->has(
+            UserAccount::factory()->has(
+                Post::factory(3)
+            )
+        )
+        ->create();
     }
 }

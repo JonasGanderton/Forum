@@ -1,13 +1,13 @@
 <?php
 
-// namespace App\Models;
 namespace Database\Seeders;
 
+use App\Models\Comment;
+use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\UserAccount;
-use App\Models\Post;
-use App\Models\Comment;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,10 +17,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create test data
-        // (Called here so IDs are all 1)
+        // Create data with IDs of 1
+        $this->createTestData();
+
+        // Creates Users, each with a UserAccount and Posts
+        $this->call(UserTableSeeder::class);
+
+        // Create Tags
+        $this->call(TagTableSeeder::class);
+
+        // Attaches Tags to Posts (populates post_tag table) 
+        $this->call(PostTableSeeder::class);
+    }
+
+    /**
+     * Seed the database with test data.
+     */
+    private function createTestData(): void
+    {
         User::factory()->create([
-            'name' => "Test User",
             'email' => "user@test.com",
         ]);
 
@@ -29,11 +44,24 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        Post::factory()->create([
+        Tag::factory()->create([
+            'name' => 'default',
+        ]);
+
+        Post::factory()->hasAttached(Tag::find(1))->create([
             'title' => 'Hello World!',
             'content' => 'This is my first post!',
             'posted_at' => '2023-01-01 00:00:00',
             'user_account_id' => 1,
+            'pinned_position' => -2,
+        ]);
+
+        Post::factory()->hasAttached(Tag::find(1))->create([
+            'title' => 'Welcome!',
+            'content' => 'Welcome to the forum!',
+            'posted_at' => '2023-01-01 00:05:00',
+            'user_account_id' => 1,
+            'pinned_position' => -1,
         ]);
 
         Comment::factory()->create([
@@ -41,13 +69,5 @@ class DatabaseSeeder extends Seeder
             'posted_at' => '2023-01-01 00:00:01',
             'user_account_id' => 1,
         ]);
- 
-        $this->call(UserTableSeeder::class);
-
-        // $this->call(UserAccountTableSeeder::class);
-
-        // $this->call(PostTableSeeder::class);
-
-        $this->call(CommentTableSeeder::class);
     }
 }

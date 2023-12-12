@@ -18,7 +18,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence($nbWords = 5, $variableNbWords = true),
-            'content' => fake()->paragraph($nbSentences = 2, $variableNbSentences = false),
+            'content' => fake()->paragraph($nbSentences = 4, $variableNbSentences = true),
             'posted_at' => fake()->dateTimeThisYear(),
         ];
     }
