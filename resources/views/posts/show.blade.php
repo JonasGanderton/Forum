@@ -15,10 +15,10 @@
                         </a>
                     </i><br><i>{{ $post->posted_at}}</i>
                 </p>
-                {{-- Add Tag labels/buttons --}}
-                {{-- @foreach ($post->tags as $tag)
-                    <span class="main"> {{ $tag->name }}</span>
-                @endforeach --}}
+                {{-- TODO: Add links to tags! --}}
+                @foreach ($post->tags as $tag)
+                    <x-secondary-button-compact>{{ $tag->name }}</x-secondary-button-compact>
+                @endforeach
             </div>
         </div>
     </div>

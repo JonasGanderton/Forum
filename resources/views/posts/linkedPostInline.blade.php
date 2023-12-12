@@ -16,6 +16,11 @@
                 {{-- TODO: Link to user profile --}}
                 Posted by <i>{{ $post->userAccount->username }}</i> - {{ $post->posted_at }}
             </span>
+            {{-- TODO: Add links to tags! --}}
+            <br>
+            @foreach ($post->tags as $tag)
+                <x-secondary-button-compact>{{ $tag->name }}</x-secondary-button-compact>
+            @endforeach
         </a>
     </div>
 </div>
