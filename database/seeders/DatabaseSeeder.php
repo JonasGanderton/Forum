@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\UserAccount;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -60,6 +62,12 @@ class DatabaseSeeder extends Seeder
             'posted_at' => '2023-01-01 00:05:00',
             'user_account_id' => 1,
             'pinned_position' => -1,
+        ]);
+
+        Comment::factory()->create([
+            'content' => 'This is my first comment!',
+            'posted_at' => '2023-01-01 00:00:01',
+            'user_account_id' => 1,
         ]);
     }
 }

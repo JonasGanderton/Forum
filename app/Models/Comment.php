@@ -5,34 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Comment extends Model
 {
     use HasFactory;
 
     /**
-     * Get the UserAccount that owns the Post
+     * Get the UserAccount that owns the Comment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function userAccount()
+    public function UserAccount()
     {
         return $this->belongsTo(UserAccount::class);
     }
 
     /**
-     * The Tags that belong to the Post
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
-  
-    /**
-     * Get all of the post's comments.
+     * Get the parent commentable model (post or comment).
      * 
-     * @return MorphMany
+     * @return MorphTo
+     */
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     * Get all of the comment's comments.
      */
     public function comments()
     {

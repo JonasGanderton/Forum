@@ -28,4 +28,14 @@ class UserAccount extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * Get all of the Comments for the UserAccount
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
