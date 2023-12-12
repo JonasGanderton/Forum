@@ -14,11 +14,7 @@
             </p>
             @include('posts.userInfo', $post)
             <div class="mt-1 text-m text-gray-900 dark:text-gray-100">
-                @if ($post->comment_count() == 1)
-                    {{ $post->comment_count() }} comment
-                @else
-                    {{ $post->comment_count() }} comments
-                @endif
+                @include('comments.count', $post)
                 &nbsp;
                 @include('tags.show', $tags=$post->tags)
             </div>

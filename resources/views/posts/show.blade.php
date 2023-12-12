@@ -26,7 +26,7 @@
             </div>
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
-                    Comments: {{ $post->comment_count() }}
+                    @include('comments.count', $post)
                 </p>
                 <br>
                 @include('comments.nestedComment', $commentable=$post)
