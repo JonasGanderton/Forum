@@ -40,6 +40,7 @@ class PostController extends Controller
         $p = new Post;
         $p->title = $validatedData['title'];
         $p->content = $validatedData['content'];
+        // Does this need to be Auth::User, or is it okay as they are authorised to get here?
         $p->user_account_id = $request->user()->id;
         $p->posted_at = now();
         $p->save();
@@ -49,9 +50,7 @@ class PostController extends Controller
         // TODO: allow user to add tags
         $p->tags()->attach(Tag::find(1));
 
-        session()->flash('message', 'Post was created.');
-
-        return redirect()->route('posts.show', ['post' => $p]);
+        return redirect()->route('posts.show', ['post' => $p])->with(['status', 'post-created']);
     }
 
     /**
