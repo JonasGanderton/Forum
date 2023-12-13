@@ -20,9 +20,7 @@
                             <x-textarea-input id="content" name="content" type="text" class="mt-1 block w-full" value="{{ old('content') }}" style="height:15em" required />
                             <x-input-error class="mt-2" :messages="$errors->get('content')" />
                         </div>
-                        
-                        {{-- TODO: Add tags as buttons. --}}
-
+                        @include('tags.select')
                         <div class="mt-3">
                             <x-primary-button type="submit">
                                 {{ __('Submit') }}

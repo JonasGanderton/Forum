@@ -39,7 +39,6 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required', // May not be required once pictures are added.
-            // TODO: validate tags
         ]);
 
         $p = new Post;
@@ -50,10 +49,13 @@ class PostController extends Controller
         $p->posted_at = now();
         $p->save();
         
-        // Save the Post first, as Post id required by post_tag table
-        
-        // TODO: allow user to add tags
-        $p->tags()->attach(Tag::find(1));
+        // Skip first three values as they are not tags
+        $values = array_slice($request->all(), 3);
+        foreach (Tag::get() as $tag) {
+            if (isset($values[$tag->name])) {
+                $p->tags()->attach($tag);
+            }
+        }
 
         return redirect()->route('posts.show', ['post' => $p])->with('status', 'Post created!');
     }
