@@ -53,15 +53,15 @@ class DatabaseSeeder extends Seeder
 
         Post::factory()->hasAttached(Tag::find(1))->create([
             'title' => 'Hello World!',
-            'content' => 'This is my first post!',
+            'content' => 'Welcome to the new forum!',
             'posted_at' => '2023-01-01 00:00:00',
             'user_account_id' => 1,
             'pinned_position' => -2,
         ]);
 
         Post::factory()->hasAttached(Tag::find(1))->create([
-            'title' => 'Welcome!',
-            'content' => 'Welcome to the forum!',
+            'title' => 'Forum rules',
+            'content' => "1. Be nice.\n2. Use tags appropriately.\n3. Don't spam.",
             'posted_at' => '2023-01-01 00:05:00',
             'user_account_id' => 1,
             'pinned_position' => -1,
