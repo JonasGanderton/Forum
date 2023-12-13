@@ -1,5 +1,4 @@
 <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-    <div class="max-w-xl">
     <a href="{{ route('posts.show', ['post' =>$post]) }}">
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ $post->title }}
@@ -13,5 +12,4 @@
             @include('tags.show', $tags=$post->tags)
         </div>
     </a>
-    </div>
 </div>
