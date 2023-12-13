@@ -1,6 +1,3 @@
-{{-- TODO: Move some of this styling into layouts.app --}}
-{{-- TODO: Set default styles in a CSS file and reference them (less copy/pasting) --}}
-
 <x-app-layout>
     <div class="py-12">
         <div class="mx-auto sm:px-6 lg:px-8 space-y-6" style="max-width:60rem">
@@ -27,7 +24,6 @@
                             </x-primary-button>
                             &nbsp;
 
-                            {{-- TODO: Change confirmation box to not use deafult browser alert --}}
                             <a href="{{ route('home') }}" onclick="return confirm('Delete draft?')">
                                 <x-secondary-button>
                                     {{ __('Cancel') }}

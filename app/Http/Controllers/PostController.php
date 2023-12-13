@@ -9,12 +9,13 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a paginated list of posts.
+     * 
+     * @param $tagName: Optionally view posts for a specific tag
      */
     public function index($tagName = null)
     {
         if ($tagName === null){
-            // Use paginate() if I have a way to format the buttons it inserts
             $posts = Post::orderByDesc('pinned_position')->orderByDesc('posted_at')->simplePaginate(10);
         } else {
             $tag = Tag::where('name', '=', $tagName)->firstOrFail();
@@ -38,13 +39,12 @@ class PostController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required', // May not be required once pictures are added.
+            'content' => 'required',
         ]);
 
         $p = new Post;
         $p->title = $validatedData['title'];
         $p->content = $validatedData['content'];
-        // Does this need to be Auth::User, or is it okay as they are authorised to get here?
         $p->user_account_id = $request->user()->id;
         $p->posted_at = now();
         $p->save();
@@ -61,7 +61,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a single post.
      */
     public function show(Post $post)
     {

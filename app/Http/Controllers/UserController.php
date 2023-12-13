@@ -32,7 +32,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a User's profile.
      */
     public function show(String $username)
     {

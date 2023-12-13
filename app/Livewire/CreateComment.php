@@ -32,9 +32,6 @@ class CreateComment extends Component
 
         $this->content = '';
 
-        // TODO: Get this to refresh without full redirect - may need to convert view to Livewire.
-
-        // return view('livewire.create-comment'); 
         return redirect()->route('posts.show', ['post' => $this->post])->with('status', 'Comment added!');
     }
 

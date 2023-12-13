@@ -38,6 +38,8 @@ class Comment extends Model
     }
 
     /**
+     * Get the Post from the beginning of this comment thread.
+     * 
      * @return Post
      */
     function originalPost() : Post
