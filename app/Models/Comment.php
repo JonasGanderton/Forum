@@ -36,4 +36,17 @@ class Comment extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    /**
+     * @return Post
+     */
+    function originalPost() : Post
+    {
+        $parent = $this->commentable;
+        while ($parent::class == Comment::class)
+        {
+            $parent = $parent->commentable;
+        }
+        return $parent;
+    }
 }

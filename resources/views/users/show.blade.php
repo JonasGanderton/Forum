@@ -31,4 +31,10 @@
             </a>
         </div> --}}
     </div>
+
+    <div class="py-6">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            @include('comments.list', $comments=$userAccount->comments->sortByDesc('posted_at'))
+        </div>
+    </div>
 </x-app-layout>
