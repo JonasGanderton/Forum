@@ -28,11 +28,30 @@
                 <span class="mt-1 text-m text-gray-900 dark:text-gray-100" style="float:right">
                     @include('comments.count', $post)
                 </span>
-                <span>
-                    @livewire('create-comment', ['post' => $post, 'parent' => $post])
-                </span>
+                
+                {{-- Show comment buttons if logged in --}}
+                @auth
+                    <button onclick="showReplyBox(0)" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">Add comment</button>
+                    <span id=0 style="display:none">
+                        @livewire('create-comment', ['post' => $post, 'parent' => $post])
+                    </span>
+                @else
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Log in to comment</span>
+                @endauth
                 <br>
                 @include('comments.nestedComment', $commentable=$post)
+                @livewireScripts
+                    <script>
+                        function showReplyBox(id) {
+                            var x = document.getElementById(id);
+                            if (x.style.display === "none") {
+                                x.style.display = "block"
+                            } else {
+                                x.style.display = "none"
+                            }
+                        }
+                    </script>
+                @livewireScripts
             </div>
         </div>
     </div>
