@@ -55,7 +55,7 @@ class PostController extends Controller
         // TODO: allow user to add tags
         $p->tags()->attach(Tag::find(1));
 
-        return redirect()->route('posts.show', ['post' => $p])->with(['status', 'post-created']);
+        return redirect()->route('posts.show', ['post' => $p])->with('status', 'Post created!');
     }
 
     /**

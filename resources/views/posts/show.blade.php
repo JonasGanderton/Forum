@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="py-12">
         <div class="mx-auto sm:px-6 lg:px-8 space-y-6" style="max-width:80rem">
-            @if (session('status') === 'post-created')
+            @if (session('status'))
                 <div 
                     x-transition:leave="ease-in duration-300"
                     x-transition:leave-start="opacity-100"
@@ -10,8 +10,8 @@
                     class="mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6"
                     x-data="{ show: true }"
                     x-show="show"
-                    x-init="setTimeout(() => show = false, 500)"
-                    >{{ __('Post created.') }}
+                    x-init="setTimeout(() => show = false, 2000)"
+                    >{{ session('status') }}
                 </div>
             @endif
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
