@@ -9,9 +9,7 @@
                       Users then have to open the post to read the rest of it.
                 TODO: Add comment counter.
             --}}
-            <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
-                {{ $post->content }}
-            </p>
+            <p style="white-space:pre-wrap" class="mt-1 text-m text-gray-900 dark:text-gray-100">{{ $post->content }}</p>
             @include('posts.userInfo', $post)
             <div class="mt-1 text-m text-gray-900 dark:text-gray-100">
                 @include('comments.count', $post)

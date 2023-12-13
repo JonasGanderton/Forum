@@ -1,6 +1,6 @@
 @foreach ($commentable->comments as $c)
     <div class="border p-2 mt-2 ml-4 bg-white dark:bg-gray-800 sm:rounded-lg text-m text-gray-900 dark:text-gray-100">
-        {{ $c->content }}
+        <p style="white-space:pre-wrap" class="mt-1 text-m text-gray-900 dark:text-gray-100">{{ $c->content }}</p>
 
         {{-- Toggle reply box --}}
         @auth

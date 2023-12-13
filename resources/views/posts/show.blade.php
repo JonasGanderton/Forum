@@ -18,9 +18,7 @@
                 <h2 class="text-xl font-medium text-gray-900 dark:text-gray-100">
                     {{ $post->title }}
                 </h2>
-                <p class="mt-1 text-m text-gray-900 dark:text-gray-100">
-                    {{ $post->content }}
-                </p>
+                <p style="white-space:pre-wrap" class="mt-1 text-m text-gray-900 dark:text-gray-100">{{ $post->content }}</p>
                 @include('posts.userInfo', $post)
                 @include('tags.show', $tags=$post->tags)
             </div>
