@@ -20,21 +20,31 @@
     
         <br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            {{-- Current page: {{ $posts->currentPage() }} --}}
-            
-            <a href="{{ $posts->previousPageUrl() }}" >
-                {{-- $paginator->onFirstPage() --}}
-                <x-primary-button>
+            {{-- Previous page button --}}
+            @if ($posts->onFirstPage())
+                <x-secondary-button disabled>
                     {{ __('Previous') }}
-                </x-primary-button>
-            </a>
-
-            <a href="{{ $posts->nextPageUrl() }}" >
-                {{-- $paginator->hasMorePages() --}}
-                <x-primary-button>
+                </x-secondary-button>
+            @else
+                <a href="{{ $posts->previousPageUrl() }}" >
+                    <x-primary-button>
+                        {{ __('Previous') }}
+                    </x-primary-button>
+                </a>
+            @endif
+            
+            {{-- Next page button --}}
+            @if ($posts->hasMorePages())
+                <a href="{{ $posts->nextPageUrl() }}" >
+                    <x-primary-button>
+                        {{ __('Next') }}
+                    </x-primary-button>
+                </a>
+            @else
+                <x-secondary-button disabled>
                     {{ __('Next') }}
-                </x-primary-button>
-            </a>
+                </x-secondary-button>
+            @endif
         </div>
     </div>
 </x-app-layout>
