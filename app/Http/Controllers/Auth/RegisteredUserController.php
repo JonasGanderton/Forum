@@ -45,6 +45,7 @@ class RegisteredUserController extends Controller
         $userAccount = UserAccount::factory()->create([
             'user_id' => $user->id,
             'username' => $request->username,
+            'about' => "Welcome to my profile!"
         ]);
 
         event(new Registered($user));
