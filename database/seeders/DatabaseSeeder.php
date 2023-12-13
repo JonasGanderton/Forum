@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
 
         UserAccount::factory()->create([
             'username' => 'TestAccount123',
+            'about' => 'Hello World!',
             'user_id' => 1,
         ]);
 

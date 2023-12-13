@@ -18,6 +18,7 @@ class UserAccountFactory extends Factory
     {
         return [
             'username' => fake()->username(),
+            'about' => fake()->text(100),
         ];
     }
 }
