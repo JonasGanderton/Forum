@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="py-12">
-        @if (session('status') === 'verification-link-sent')
+        @if (session('status'))
             <div 
                 x-transition:leave="ease-in duration-300"
                 x-transition:leave-start="opacity-100"
@@ -10,7 +10,7 @@
                 x-data="{ show: true }"
                 x-show="show"
                 x-init="setTimeout(() => show = false, 5000)"
-                >{{ __('A verification link has been emailed to you.') }}
+                >{{ session('status') }}
             </div>
         @endif
 

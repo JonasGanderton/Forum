@@ -51,6 +51,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME)->with('status', 'verification-link-sent');
+        return redirect(RouteServiceProvider::HOME)->with('status', 'A verification link has been emailed to you.');
     }
 }
