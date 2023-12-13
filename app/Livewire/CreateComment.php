@@ -5,30 +5,30 @@ namespace App\Livewire;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Notifications\Commented;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 
 class CreateComment extends Component
-{ 
-    public $commentable_id;
-    public $commentable_type;
+{
     public $content = '';
     public $parent;
     public $post;
  
     public function save()
     {
-        $this->commentable_type = $this->parent::class;
-        $this->commentable_id = $this->parent->id;
 
+        $commenter = Auth::authenticate()->userAccount;
         Comment::factory()->create([
             'content' => $this->content,
             'posted_at' => now(),
-            'user_account_id' => Auth::authenticate()->userAccount->id,
-            'commentable_id' => $this->commentable_id,
-            'commentable_type' => $this->commentable_type,
+            'user_account_id' => $commenter->id,
+            'commentable_id' => $this->parent->id,
+            'commentable_type' => $this->parent::class,
         ]);
+
+        $this->parent->userAccount->user->notify(new Commented($this->post, $commenter->username, $this->content));
 
         $this->content = '';
 
