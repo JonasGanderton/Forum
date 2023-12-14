@@ -38,11 +38,11 @@ class DatabaseSeeder extends Seeder
     private function createTestData(): void
     {
         User::factory()->create([
-            'email' => "user@test.com",
+            'email' => "dev@forum.com",
         ]);
 
         UserAccount::factory()->create([
-            'username' => 'TestAccount123',
+            'username' => 'forumDev',
             'about' => 'Hello World!',
             'user_id' => 1,
         ]);
